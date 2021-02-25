@@ -10,7 +10,7 @@ export function CountDown(){
    const [isActive, setIsActive] = useState(false);
    const [hasFinish, setHasFinish] = useState(false);
 
-
+   // tempo do relogio contados dado em minutos X segundos
    const minutes = Math.floor(time / 60); 
    const seconds = time % 60;
 
@@ -23,10 +23,10 @@ export function CountDown(){
    }
    
    //pausar nosso relogio e iniciar de onde parou.
-   function pauseCountDown(){
-      clearTimeout(countDownTimeout);
-      setIsActive(false)
-   }
+   // function pauseCountDown(){
+   //    clearTimeout(countDownTimeout);
+   //    setIsActive(false)
+   // }
    
    // resetar para os 25 novamente!
    function resetCountDown(){
@@ -41,9 +41,12 @@ export function CountDown(){
                setTime( time - 1 )     
             }, 1000); 
       } else if(isActive && time === 0){
-         setHasFinish(true);
-         setIsActive(false);
+         // setHasFinish(true);
+         // setIsActive(false);
+         console.log("finalizou o contador");
+         
       }
+
 
    }, [isActive, time])
    
@@ -65,29 +68,22 @@ export function CountDown(){
             
          </div>
 
-         {isActive == false ? 
+         {isActive ? 
             (
-               <button type="button" 
-                  className={styles.countDownButton} 
-                  onClick={startCountDown}>
-                  Start Contador
-               </button>   
-            ) 
-         :
-            (  <>
-               <span className={styles.testes1}>
-
-               <button type="button" 
-               className={`${styles.countDownButton} ${styles.countDownButtonActive}`} 
-               onClick={resetCountDown}>
+                <button type="button" 
+                  className={`${styles.countDownButton} ${styles.countDownButtonActive}`} 
+                  onClick={resetCountDown}>
                   Reset Contador
-               </button>
-               <span onClick={pauseCountDown} > pause </span>
-                  
-               </span>
-               
-               </>
+               </button>                  
             ) 
+         : 
+         (
+            <button type="button" 
+               className={styles.countDownButton} 
+               onClick={startCountDown}>
+               Start Contador
+            </button>   
+         )    
          }
       </div>
    );
