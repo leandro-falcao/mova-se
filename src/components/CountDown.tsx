@@ -8,7 +8,7 @@ export function CountDown(){
 
    const [time, setTime] = useState(0.2 * 60);
    const [isActive, setIsActive] = useState(false);
-   const [hasFinish, setHasFinish] = useState(false);
+   const [hasFinished, setHasFinished ] = useState(false);
 
    // tempo do relogio contados dado em minutos X segundos
    const minutes = Math.floor(time / 60); 
@@ -41,10 +41,8 @@ export function CountDown(){
                setTime( time - 1 )     
             }, 1000); 
       } else if(isActive && time === 0){
-         // setHasFinish(true);
-         // setIsActive(false);
-         console.log("finalizou o contador");
-         
+         setHasFinished(true)
+         setIsActive(false);         
       }
 
 
