@@ -97,7 +97,7 @@
    height: 5rem; 
    margin-top: 2rem;
    border: 0em;
-   border-radius:25px;
+   border-radius:15px;
 
    font-size: 1.25rem;
    font-weight: 600;
@@ -107,5 +107,5 @@
 
 .testes1 > span:hover{
    background-color: #a77c06;
-   color: 
+   color: #00f;
 }

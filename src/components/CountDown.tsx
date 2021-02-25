@@ -6,8 +6,9 @@ let countDownTimeout: NodeJS.Timeout;
 
 export function CountDown(){
 
-   const [time, setTime] = useState(25 * 60);
+   const [time, setTime] = useState(0.2 * 60);
    const [isActive, setIsActive] = useState(false);
+   const [hasFinish, setHasFinish] = useState(false);
 
 
    const minutes = Math.floor(time / 60); 
@@ -21,27 +22,29 @@ export function CountDown(){
       setIsActive(true);
    }
    
-   /*  //pausar nosso relogio e iniciar de onde parou.
-   function resetCountDown(){
+   //pausar nosso relogio e iniciar de onde parou.
+   function pauseCountDown(){
       clearTimeout(countDownTimeout);
       setIsActive(false)
    }
-   */
-
+   
    // resetar para os 25 novamente!
    function resetCountDown(){
       clearTimeout(countDownTimeout);
       setIsActive(false)
-      setTime(25 * 60)
+      setTime(0.2 * 60)
 }
 
    useEffect( ()=>{
       if( isActive === true && time > 0){
          countDownTimeout = setTimeout(() => {
                setTime( time - 1 )     
-            }, 1000);
-        
+            }, 1000); 
+      } else if(isActive && time === 0){
+         setHasFinish(true);
+         setIsActive(false);
       }
+
    }, [isActive, time])
    
    return(
@@ -79,7 +82,7 @@ export function CountDown(){
                onClick={resetCountDown}>
                   Reset Contador
                </button>
-               <span> pause </span>
+               <span onClick={pauseCountDown} > pause </span>
                   
                </span>
                
