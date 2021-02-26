@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { ChallengesContext } from '../contexts/ChallengesContext';
 import styles from '../styles/components/ChallengeBox.module.css';
 
 export function ChallengeBox() {
+
+  const contextData = useContext(ChallengesContext)
 
   const hasActiveChallege = true;
 
@@ -26,7 +30,7 @@ export function ChallengeBox() {
                 type="button"
                 className={styles.challengeFailedButton}
                 >
-                falhei
+              { contextData}-falhei
               </button>
 
               <button
