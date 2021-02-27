@@ -38,13 +38,12 @@ export function ChallengesProvider({ children }: ChallengesProvidesProps) {
 
   return (
     <ChallengesContext.Provider value={
-      [
-        level,
-        currentExperience,
-        challengesCompleted,
-        levelUp,
-        startNewChallenge
-      ]
+      level,
+      currentExperience,
+      challengesCompleted,
+      levelUp,
+      startNewChallenge
+
     }
     >
       {children}
