@@ -6,6 +6,7 @@ import { ChallengesContext } from '../contexts/ChallengesContext';
 import styles from '../styles/components/CountDown.module.css';
 
 let countDownTimeout: NodeJS.Timeout;
+//erro na linha 15
 
 export function CountDown() {
 
