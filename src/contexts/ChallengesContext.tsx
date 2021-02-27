@@ -1,6 +1,6 @@
 import { createContext, useState, ReactNode } from 'react';
 
-
+//dando tipos
 interface ChallengesContextData {
   level: number;
   currentExperience: number;
